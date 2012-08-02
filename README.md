@@ -1,6 +1,6 @@
 # Liberator
 
-*Circumvents PHP access modifier restrictions.*
+*A proxy for circumventing PHP access modifier restrictions.*
 
 ## Installation
 
@@ -14,7 +14,8 @@ Liberator requires PHP 5.3 or later.
 ### Bare installation
 
 * Clone from GitHub: `git clone git://github.com/eloquent/liberator.git`
-* Use a [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md) compatible autoloader (namespace 'Eloquent' in the 'src' directory)
+* Use a [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
+  compatible autoloader (namespace 'Eloquent\Liberator' in the 'src' directory)
 
 ## Code quality
 

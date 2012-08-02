@@ -1,6 +1,6 @@
 {
     "name": "eloquent/liberator",
-    "description": "Circumvents PHP access modifier restrictions.",
+    "description": "A proxy for circumventing PHP access modifier restrictions.",
     "keywords": ["access","modifier","object","proxy","private","protected","reflection"],
     "homepage": "https://github.com/eloquent/liberator",
     "license": "MIT",
