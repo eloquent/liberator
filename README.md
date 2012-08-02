@@ -23,8 +23,8 @@ Liberator is an object proxy that allows you to access methods and properties
 of an object or class that would normally be restricted by PHP. Essentially,
 this means you ignore any 'private' or 'protected' keywords.
 
-The most common usage of Liberator is as a tool to assist in [white-box](http://en.wikipedia.org/wiki/White-box_testing)
-style unit testing.
+Liberator's primary use is as a testing tool. Unit tests can often be simplified
+using a mix of partially mocked objects and Liberator.
 
 Liberator is based upon the [Pops](https://github.com/eloquent/pops) object
 proxy system.
