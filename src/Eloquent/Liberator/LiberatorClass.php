@@ -42,7 +42,7 @@ class LiberatorClass extends ProxyClass
      *
      * @return mixed
      */
-    public function liberatorCall($method, array &$arguments)
+    public function popsCall($method, array &$arguments)
     {
         if (method_exists($this->popsClass, $method)) {
             $method = $this->liberatorReflector->getMethod($method);
@@ -54,18 +54,18 @@ class LiberatorClass extends ProxyClass
             );
         }
 
-        return parent::__call($method, $arguments);
+        return parent::popsCall($method, $arguments);
     }
 
     /**
      * @param string $method
-     * @param array $arguments
+     * @param array &$arguments
      *
      * @return mixed
      */
-    public function __call($method, array $arguments)
+    public function liberatorCall($method, array &$arguments)
     {
-        return $this->liberatorCall($method, $arguments);
+        return $this->popsCall($method, $arguments);
     }
 
     /**

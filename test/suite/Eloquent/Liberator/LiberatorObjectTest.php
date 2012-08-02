@@ -99,6 +99,18 @@ class LiberatorObjectTest extends TestCase
     /**
      * @dataProvider fixtureData
      */
+    public function testCallByReference(Object $object, LiberatorObject $proxy)
+    {
+        $variable = null;
+        $arguments = array(&$variable, 'foo');
+        $proxy->liberatorCall('byReference', $arguments);
+
+        $this->assertSame('foo', $variable);
+    }
+
+    /**
+     * @dataProvider fixtureData
+     */
     public function testSetGet(Object $object, LiberatorObject $proxy)
     {
         $this->assertTrue(isset($proxy->publicProperty));
@@ -160,17 +172,5 @@ class LiberatorObjectTest extends TestCase
 
         $this->assertTrue(isset($proxy->foo));
         $this->assertEquals('baz', $proxy->foo);
-    }
-
-    /**
-     * @dataProvider fixtureData
-     */
-    public function testByReference(Object $object, LiberatorObject $proxy)
-    {
-        $variable = null;
-        $arguments = array(&$variable, 'foo');
-        $proxy->liberatorCall('byReference', $arguments);
-
-        $this->assertSame('foo', $variable);
     }
 }

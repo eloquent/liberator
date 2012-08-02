@@ -102,6 +102,27 @@ class LiberatorClassTest extends TestCase
         );
     }
 
+    public function testCallByReference()
+    {
+        $variable = null;
+        $arguments = array(&$variable, 'foo');
+        $this->_proxy->liberatorCall('staticByReference', $arguments);
+
+        $this->assertSame('foo', $variable);
+    }
+
+    public function testCallByReferenceStatic()
+    {
+        $class = LiberatorClass::popsGenerateStaticClassProxy(
+            __NAMESPACE__.'\Test\Fixture\Object'
+        );
+        $variable = null;
+        $arguments = array(&$variable, 'foo');
+        $class::liberator()->liberatorCall('staticByReference', $arguments);
+
+        $this->assertSame('foo', $variable);
+    }
+
     /**
      * @dataProvider fixtureData
      */
@@ -234,26 +255,5 @@ class LiberatorClassTest extends TestCase
             'Eloquent\Pops\ProxyPrimitive',
             $class::staticString()
         );
-    }
-
-    public function testByReference()
-    {
-        $variable = null;
-        $arguments = array(&$variable, 'foo');
-        $this->_proxy->liberatorCall('staticByReference', $arguments);
-
-        $this->assertSame('foo', $variable);
-    }
-
-    public function testByReferenceStatic()
-    {
-        $class = LiberatorClass::popsGenerateStaticClassProxy(
-            __NAMESPACE__.'\Test\Fixture\Object'
-        );
-        $variable = null;
-        $arguments = array(&$variable, 'foo');
-        $class::liberator()->liberatorCall('staticByReference', $arguments);
-
-        $this->assertSame('foo', $variable);
     }
 }
