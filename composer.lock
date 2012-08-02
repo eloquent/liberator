@@ -1,0 +1,19 @@
+{
+    "hash": "18a64e719b067ebaf7e5298de075a26c",
+    "packages": [
+        {
+            "package": "eloquent/pops",
+            "version": "3.0.0"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ]
+}
