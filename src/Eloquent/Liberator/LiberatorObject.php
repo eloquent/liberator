@@ -35,7 +35,7 @@ class LiberatorObject extends ProxyObject
      */
     public function popsCall($method, array &$arguments)
     {
-        if (method_exists($this->popsObject, $method)) {
+        if ($this->liberatorReflector->hasMethod($method)) {
             $method = $this->liberatorReflector->getMethod($method);
             $method->setAccessible(true);
 
