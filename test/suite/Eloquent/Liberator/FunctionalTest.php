@@ -17,43 +17,43 @@ class FunctionalTest extends TestCase
     public function testDocumentationLiberatorObject()
     {
         $object = new SeriousBusiness;
-        $proxy = Liberator::proxy($object);
+        $liberator = Liberator::liberate($object);
 
         $this->assertEquals(
             'foo is not so private...',
-            $proxy->foo('not so private...')
+            $liberator->foo('not so private...')
         );
         $this->assertEquals(
             'mind = blown',
-            $proxy->bar.' = blown'
+            $liberator->bar.' = blown'
         );
     }
 
     public function testDocumentationLiberatorClass()
     {
-        $proxy = Liberator::proxyClass('SeriousBusiness');
+        $liberator = Liberator::liberateClass('SeriousBusiness');
 
         $this->assertEquals(
             'baz is not so private...',
-            $proxy->baz('not so private...')
+            $liberator->baz('not so private...')
         );
         $this->assertEquals(
             'mind = blown',
-            $proxy->qux.' = blown'
+            $liberator->qux.' = blown'
         );
     }
 
     public function testDocumentationLiberatorClassStatic()
     {
-        $proxyClass = Liberator::proxyClassStatic('SeriousBusiness');
+        $liberatorClass = Liberator::liberateClassStatic('SeriousBusiness');
 
         $this->assertEquals(
             'baz is not so private...',
-            $proxyClass::baz('not so private...')
+            $liberatorClass::baz('not so private...')
         );
         $this->assertEquals(
             'mind = blown',
-            $proxyClass::popsProxy()->qux.' = blown'
+            $liberatorClass::liberator()->qux.' = blown'
         );
     }
 }

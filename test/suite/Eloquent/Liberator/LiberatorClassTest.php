@@ -200,7 +200,7 @@ class LiberatorClassTest extends TestCase
         );
 
         $expected = new $class(__NAMESPACE__.'\Test\Fixture\Object');
-        $proxy = $class::popsProxy();
+        $proxy = $class::liberator();
 
         $this->assertEquals($expected, $proxy);
 
@@ -234,5 +234,26 @@ class LiberatorClassTest extends TestCase
             'Eloquent\Pops\ProxyPrimitive',
             $class::staticString()
         );
+    }
+
+    public function testByReference()
+    {
+        $variable = null;
+        $arguments = array(&$variable, 'foo');
+        $this->_proxy->liberatorCall('staticByReference', $arguments);
+
+        $this->assertSame('foo', $variable);
+    }
+
+    public function testByReferenceStatic()
+    {
+        $class = LiberatorClass::popsGenerateStaticClassProxy(
+            __NAMESPACE__.'\Test\Fixture\Object'
+        );
+        $variable = null;
+        $arguments = array(&$variable, 'foo');
+        $class::liberator()->liberatorCall('staticByReference', $arguments);
+
+        $this->assertSame('foo', $variable);
     }
 }

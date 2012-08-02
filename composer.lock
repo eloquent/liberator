@@ -1,9 +1,9 @@
 {
-    "hash": "18a64e719b067ebaf7e5298de075a26c",
+    "hash": "f4959e9783892e089bf9d6a5b6daa26d",
     "packages": [
         {
             "package": "eloquent/pops",
-            "version": "3.0.0"
+            "version": "3.0.1"
         }
     ],
     "packages-dev": [

@@ -29,11 +29,11 @@ class LiberatorObject extends ProxyObject
 
     /**
      * @param string $method
-     * @param array $arguments
+     * @param array &$arguments
      *
      * @return mixed
      */
-    public function __call($method, array $arguments)
+    public function liberatorCall($method, array &$arguments)
     {
         if (method_exists($this->popsObject, $method)) {
             $method = $this->liberatorReflector->getMethod($method);
@@ -45,6 +45,17 @@ class LiberatorObject extends ProxyObject
         }
 
         return parent::__call($method, $arguments);
+    }
+
+    /**
+     * @param string $method
+     * @param array $arguments
+     *
+     * @return mixed
+     */
+    public function __call($method, array $arguments)
+    {
+        return $this->liberatorCall($method, $arguments);
     }
 
     /**

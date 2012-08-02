@@ -17,17 +17,17 @@ use Eloquent\Pops\ProxyPrimitive;
 
 class LiberatorTest extends TestCase
 {
-    public function testProxy()
+    public function testLiberator()
     {
-        $expected = new LiberatorClass('Eloquent\Liberator\Test\Fixture\Object');
+        $expected = new LiberatorClass(__NAMESPACE__.'\Test\Fixture\Object');
 
-        $this->assertEquals($expected, Liberator::proxyClass(
-            'Eloquent\Liberator\Test\Fixture\Object'
+        $this->assertEquals($expected, Liberator::liberateClass(
+            __NAMESPACE__.'\Test\Fixture\Object'
         ));
 
 
-        $class = Liberator::proxyClassStatic(
-            'Eloquent\Liberator\Test\Fixture\Object'
+        $class = Liberator::liberateClassStatic(
+            __NAMESPACE__.'\Test\Fixture\Object'
         );
 
         $this->assertTrue(class_exists($class));
@@ -38,19 +38,16 @@ class LiberatorTest extends TestCase
 
         $expected = new LiberatorArray(array());
 
-        $this->assertEquals($expected, Liberator::proxy(array()));
-        $this->assertEquals($expected, Liberator::proxyArray(array()));
+        $this->assertEquals($expected, Liberator::liberate(array()));
 
 
         $expected = new LiberatorObject(new Object);
 
-        $this->assertEquals($expected, Liberator::proxy(new Object));
-        $this->assertEquals($expected, Liberator::proxyObject(new Object));
+        $this->assertEquals($expected, Liberator::liberate(new Object));
 
 
         $expected = new ProxyPrimitive('string');
 
-        $this->assertEquals($expected, Liberator::proxy('string'));
-        $this->assertEquals($expected, Liberator::proxyPrimitive('string'));
+        $this->assertEquals($expected, Liberator::liberate('string'));
     }
 }

@@ -18,6 +18,14 @@ use ReflectionClass;
 class LiberatorClass extends ProxyClass
 {
     /**
+     * @return LiberatorClass
+     */
+    public static function liberator()
+    {
+        return static::popsProxy();
+    }
+
+    /**
      * @param string $class
      * @param boolean $recursive
      */
@@ -30,11 +38,11 @@ class LiberatorClass extends ProxyClass
 
     /**
      * @param string $method
-     * @param array $arguments
+     * @param array &$arguments
      *
      * @return mixed
      */
-    public function __call($method, array $arguments)
+    public function liberatorCall($method, array &$arguments)
     {
         if (method_exists($this->popsClass, $method)) {
             $method = $this->liberatorReflector->getMethod($method);
@@ -47,6 +55,17 @@ class LiberatorClass extends ProxyClass
         }
 
         return parent::__call($method, $arguments);
+    }
+
+    /**
+     * @param string $method
+     * @param array $arguments
+     *
+     * @return mixed
+     */
+    public function __call($method, array $arguments)
+    {
+        return $this->liberatorCall($method, $arguments);
     }
 
     /**

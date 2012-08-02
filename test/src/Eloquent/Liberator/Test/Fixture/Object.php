@@ -48,6 +48,11 @@ class Object
         return 'string';
     }
 
+    static public function staticByReference(&$variable, $value)
+    {
+        $variable = $value;
+    }
+
     public function publicMethod()
     {
         return array(__FUNCTION__, func_get_args());
@@ -86,6 +91,11 @@ class Object
     public function __toString()
     {
         return 'foo';
+    }
+
+    public function byReference(&$variable, $value)
+    {
+        $variable = $value;
     }
 
     static public $staticPublicProperty = 'staticPublicProperty';
