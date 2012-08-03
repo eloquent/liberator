@@ -116,7 +116,7 @@ echo $liberatorClass::liberator()->qux.' = blown';   // outputs 'mind = blown'
 Unfortunately, there is (currently) no __getStatic() or __setStatic() in PHP,
 so accessing static properties in this way is a not as elegant as it could be.
 
-### Applications for Liberator
+## Applications for Liberator
 
 * Writing [white-box](http://en.wikipedia.org/wiki/White-box_testing) style unit
   tests (testing protected/private methods).
