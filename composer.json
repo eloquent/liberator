@@ -13,7 +13,10 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "eloquent/pops": "3.*"
+        "eloquent/pops": "~3"
+    },
+    "require-dev": {
+        "icecave/archer": "~0.2"
     },
     "autoload": {
         "psr-0": {

@@ -2,20 +2,13 @@
 
 *A proxy for circumventing PHP access modifier restrictions.*
 
+[![Build status](https://raw.github.com/eloquent/liberator/gh-pages/artifacts/images/icecave/regular/build-status.png)](http://travis-ci.org/eloquent/liberator)
+[![Test coverage](https://raw.github.com/eloquent/liberator/gh-pages/artifacts/images/icecave/regular/coverage.png)](http://eloquent.github.com/liberator/artifacts/tests/coverage)
+
 ## Installation
 
-Liberator requires PHP 5.3 or later.
-
-### With [Composer](http://getcomposer.org/)
-
-* Add 'eloquent/liberator' to your project's composer.json dependencies
-* Run `php composer.phar install`
-
-### Bare installation
-
-* Clone from GitHub: `git clone git://github.com/eloquent/liberator.git`
-* Use a [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md)
-  compatible autoloader (namespace 'Eloquent\Liberator' in the 'src' directory)
+Available as [Composer](http://getcomposer.org/) package
+[eloquent/liberator](https://packagist.org/packages/eloquent/liberator).
 
 ## What is Liberator?
 
@@ -40,8 +33,6 @@ classes (i.e. static methods and properties).
 Take the following class:
 
 ```php
-<?php
-
 class SeriousBusiness
 {
     private function foo($adjective)
@@ -57,8 +48,6 @@ Normally there is no way to call `foo()` or access `$bar` from outside the
 `SeriousBusiness` class, but **Liberator** allows this to be achieved:
 
 ```php
-<?php
-
 use Eloquent\Liberator\Liberator;
 
 $object = new SeriousBusiness;
@@ -73,8 +62,6 @@ echo $liberator->bar.' = blown';             // outputs 'mind = blown'
 The same concept applies for static methods and properties:
 
 ```php
-<?php
-
 class SeriousBusiness
 {
     static private function baz($adjective)
@@ -90,8 +77,6 @@ To access these, a **class liberator** must be used instead of an
 **object liberator**, but they operate in a similar manner:
 
 ```php
-<?php
-
 use Eloquent\Liberator\Liberator;
 
 $liberator = Liberator::liberateClass('SeriousBusiness');
@@ -103,8 +88,6 @@ echo $liberator->qux.' = blown';             // outputs 'mind = blown'
 Alternatively, Liberator can generate a class that can be used statically:
 
 ```php
-<?php
-
 use Eloquent\Liberator\Liberator;
 
 $liberatorClass = Liberator::liberateClassStatic('SeriousBusiness');
@@ -121,14 +104,3 @@ so accessing static properties in this way is a not as elegant as it could be.
 * Writing [white-box](http://en.wikipedia.org/wiki/White-box_testing) style unit
   tests (testing protected/private methods).
 * Modifying behaviour of poorly designed third-party libraries.
-
-## Code quality
-
-Liberator strives to attain a high level of quality. A full test suite is
-available, and code coverage is closely monitored.
-
-### Latest revision test suite results
-[![Build Status](https://secure.travis-ci.org/eloquent/liberator.png)](http://travis-ci.org/eloquent/liberator)
-
-### Latest revision test suite coverage
-<http://ci.ezzatron.com/report/liberator/coverage/>
