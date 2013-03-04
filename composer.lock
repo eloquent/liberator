@@ -24,7 +24,6 @@
                     "Eloquent\\Pops": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -32,7 +31,8 @@
                 {
                     "name": "Erin Millard",
                     "email": "ezzatron@gmail.com",
-                    "homepage": "http://ezzatron.com/"
+                    "homepage": "http://ezzatron.com/",
+                    "role": null
                 }
             ],
             "description": "PHP object proxy system.",
@@ -42,7 +42,7 @@
                 "object",
                 "proxy"
             ],
-            "time": "2012-08-02 06:17:58"
+            "time": "2012-08-02 13:17:58"
         }
     ],
     "packages-dev": [

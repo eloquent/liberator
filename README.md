@@ -2,8 +2,8 @@
 
 *A proxy for circumventing PHP access modifier restrictions.*
 
-[![Build status](https://raw.github.com/eloquent/liberator/gh-pages/artifacts/images/icecave/regular/build-status.png)](http://travis-ci.org/eloquent/liberator)
-[![Test coverage](https://raw.github.com/eloquent/liberator/gh-pages/artifacts/images/icecave/regular/coverage.png)](http://eloquent.github.com/liberator/artifacts/tests/coverage)
+[![Build Status]](http://travis-ci.org/eloquent/liberator)
+[![Test Coverage]](http://eloquent-software.com/liberator/artifacts/tests/coverage/)
 
 ## Installation
 
@@ -104,3 +104,7 @@ so accessing static properties in this way is a not as elegant as it could be.
 * Writing [white-box](http://en.wikipedia.org/wiki/White-box_testing) style unit
   tests (testing protected/private methods).
 * Modifying behaviour of poorly designed third-party libraries.
+
+<!-- references -->
+[Build Status]: https://raw.github.com/eloquent/liberator/gh-pages/artifacts/images/icecave/regular/build-status.png
+[Test Coverage]: https://raw.github.com/eloquent/liberator/gh-pages/artifacts/images/icecave/regular/coverage.png
