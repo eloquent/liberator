@@ -1,14 +1,25 @@
 # Liberator changelog
 
-### 1.1.1
+## 2.0.0 (2014-02-09)
 
-* Added [icecave/archer](https://github.com/IcecaveStudios/archer) integration
-* Repository maintenance
+- **[BC BREAK]** Some class members that were previously protected are now
+  private. It is very unlikely that this affects anyone at all, but technically
+  it's backwards incompatible.
+- **[NEW]** Added an interface for identifying liberator proxied values.
+- **[NEW]** API documentation
+- **[MAINTENANCE]** Repository maintenance
 
-### 1.1.0
+## 1.1.1 (2013-03-04)
 
-* Improved API
+- **[NEW]** Added [Archer] integration
+- **[MAINTENANCE]** Repository maintenance
 
-### 1.0.0
+[Archer]: https://github.com/IcecaveStudios/archer
 
-* Initial stable release
+## 1.1.0 (2012-08-02)
+
+- **[IMPROVED]** Improved API
+
+## 1.0.0 (2012-08-02)
+
+- **[NEW]** Initial stable release
