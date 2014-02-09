@@ -31,21 +31,6 @@ class LiberatorClass extends ProxyClass implements LiberatorProxyInterface
     }
 
     /**
-     * Construct a new non-static class proxy.
-     *
-     * @param string       $class       The name of the class to proxy.
-     * @param boolean|null $isRecursive True if the proxy should be recursive.
-     *
-     * @throws Exception\InvalidTypeException If the supplied value is not the correct type.
-     */
-    public function __construct($class, $isRecursive = null)
-    {
-        parent::__construct($class, $isRecursive);
-
-        $this->liberatorReflector = new ReflectionClass($class);
-    }
-
-    /**
      * Call a static method on the proxied class with support for by-reference
      * arguments.
      *
@@ -57,6 +42,20 @@ class LiberatorClass extends ProxyClass implements LiberatorProxyInterface
     public function liberatorCall($method, array &$arguments)
     {
         return $this->popsCall($method, $arguments);
+    }
+
+    /**
+     * Set the wrapped class.
+     *
+     * @param string $class The class to wrap.
+     *
+     * @throws InvalidTypeException If the supplied value is not the correct type.
+     */
+    public function setPopsValue($class)
+    {
+        parent::setPopsValue($class);
+
+        $this->liberatorReflector = new ReflectionClass($class);
     }
 
     /**

@@ -3,20 +3,20 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ce3f2658d0aa6470dd887595fbaf56e9",
+    "hash": "79799b8249b429d0b5eaf3d45440abc4",
     "packages": [
         {
             "name": "eloquent/pops",
-            "version": "dev-develop",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/eloquent/pops.git",
-                "reference": "6ebad946d9ff91910ae61469badffb060a97b780"
+                "reference": "80dbee5422347dc581d38ade92001509dce34926"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/eloquent/pops/zipball/6ebad946d9ff91910ae61469badffb060a97b780",
-                "reference": "6ebad946d9ff91910ae61469badffb060a97b780",
+                "url": "https://api.github.com/repos/eloquent/pops/zipball/80dbee5422347dc581d38ade92001509dce34926",
+                "reference": "80dbee5422347dc581d38ade92001509dce34926",
                 "shasum": ""
             },
             "require": {
@@ -50,7 +50,7 @@
                 "property",
                 "proxy"
             ],
-            "time": "2014-02-09 08:09:42"
+            "time": "2014-02-09 10:09:42"
         }
     ],
     "packages-dev": [
@@ -1018,9 +1018,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "eloquent/pops": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": {
         "php": ">=5.3"
     },

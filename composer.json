@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3",
-        "eloquent/pops": "dev-develop@dev"
+        "eloquent/pops": "~4.1.0"
     },
     "require-dev": {
         "icecave/archer": "~1"

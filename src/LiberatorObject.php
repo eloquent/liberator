@@ -21,21 +21,6 @@ use ReflectionObject;
 class LiberatorObject extends ProxyObject implements LiberatorProxyInterface
 {
     /**
-     * Construct a new traversable proxy.
-     *
-     * @param mixed        $object      The object to wrap.
-     * @param boolean|null $isRecursive True if the wrapped object should be recursively proxied.
-     *
-     * @throws InvalidTypeException If the supplied value is not the correct type.
-     */
-    public function __construct($object, $isRecursive = null)
-    {
-        parent::__construct($object, $isRecursive);
-
-        $this->liberatorReflector = new ReflectionObject($object);
-    }
-
-    /**
      * Call a method on the wrapped object with support for by-reference
      * arguments.
      *
@@ -47,6 +32,20 @@ class LiberatorObject extends ProxyObject implements LiberatorProxyInterface
     public function liberatorCall($method, array &$arguments)
     {
         return $this->popsCall($method, $arguments);
+    }
+
+    /**
+     * Set the wrapped object.
+     *
+     * @param string $object The object to wrap.
+     *
+     * @throws InvalidTypeException If the supplied value is not the correct type.
+     */
+    public function setPopsValue($object)
+    {
+        parent::setPopsValue($object);
+
+        $this->liberatorReflector = new ReflectionObject($object);
     }
 
     /**
