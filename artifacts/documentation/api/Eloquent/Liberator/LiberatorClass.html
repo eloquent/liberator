@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>Eloquent\Liberator\LiberatorClass | eloquent/liberator API</title>
+                    <link rel="stylesheet" type="text/css" href="../../stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="../../classes.html">Classes</a></li>
+                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                        <li><a href="../../interfaces.html">Interfaces</a></li>
+            <li><a href="../../doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title">eloquent/liberator API</div>
+
+            <div class="type">Class</div>
+    <h1><a href="../../Eloquent/Liberator.html">Eloquent\Liberator</a>\LiberatorClass</h1>
+    </div>
+        <div class="content">
+                <p>class    <strong>LiberatorClass</strong>        extends <abbr title="Eloquent\Pops\ProxyClass">ProxyClass</abbr>        implements
+        <a href="../../Eloquent/Liberator/LiberatorProxyInterface.html"><abbr title="Eloquent\Liberator\LiberatorProxyInterface">LiberatorProxyInterface</abbr></a></p>
+
+            <div class="description">
+            <p>A class proxy that circumvents access modifier restrictions.</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<a href="../../Eloquent/Liberator/LiberatorClass.html"><abbr title="Eloquent\Liberator\LiberatorClass">LiberatorClass</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_liberator">liberator</a>()
+                    <p>Get the non-static class proxy for this class.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_liberatorCall">liberatorCall</a>(string $method, array $arguments)
+                    <p>Call a static method on the proxied class with support for by-reference arguments.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setPopsValue">setPopsValue</a>(string $class)
+                    <p>Set the wrapped class.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_popsCall">popsCall</a>(string $method, array $arguments)
+                    <p>Call a static method on the proxied class with support for by-reference arguments.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___set">__set</a>(string $property, mixed $value)
+                    <p>Set the value of a static property on the proxied class.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method___get">__get</a>(string $property)
+                    <p>Get the value of a static property on the proxied class.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method___isset">__isset</a>(string $property)
+                    <p>Returns true if the supplied static property exists on the proxied class.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___unset">__unset</a>(string $property)
+                    <p>Set the value of a static property on the proxied class to null.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_liberator">
+        <div class="location">at line 28</div>
+        <code>        static    public            <a href="../../Eloquent/Liberator/LiberatorClass.html"><abbr title="Eloquent\Liberator\LiberatorClass">LiberatorClass</abbr></a>
+    <strong>liberator</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the non-static class proxy for this class.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="../../Eloquent/Liberator/LiberatorClass.html"><abbr title="Eloquent\Liberator\LiberatorClass">LiberatorClass</abbr></a></td>
+            <td>The non-static class proxy.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_liberatorCall">
+        <div class="location">at line 42</div>
+        <code>            public            mixed
+    <strong>liberatorCall</strong>(string $method, array $arguments)</code>
+    </h3>
+    <div class="details">
+        <p>Call a static method on the proxied class with support for by-reference arguments.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$method</td>
+                <td>The name of the method to call.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td>The arguments.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>The result of the method call.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setPopsValue">
+        <div class="location">at line 54</div>
+        <code>            public            
+    <strong>setPopsValue</strong>(string $class)</code>
+    </h3>
+    <div class="details">
+        <p>Set the wrapped class.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$class</td>
+                <td>The class to wrap.</td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="InvalidTypeException">InvalidTypeException</abbr></td>
+                <td>If the supplied value is not the correct type.</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_popsCall">
+        <div class="location">at line 70</div>
+        <code>            public            mixed
+    <strong>popsCall</strong>(string $method, array $arguments)</code>
+    </h3>
+    <div class="details">
+        <p>Call a static method on the proxied class with support for by-reference arguments.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$method</td>
+                <td>The name of the method to call.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$arguments</td>
+                <td>The arguments.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>The result of the method call.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___set">
+        <div class="location">at line 91</div>
+        <code>            public            
+    <strong>__set</strong>(string $property, mixed $value)</code>
+    </h3>
+    <div class="details">
+        <p>Set the value of a static property on the proxied class.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property to set.</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>The new value.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___get">
+        <div class="location">at line 115</div>
+        <code>            public            mixed
+    <strong>__get</strong>(string $property)</code>
+    </h3>
+    <div class="details">
+        <p>Get the value of a static property on the proxied class.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property to get.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>The value of the property.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___isset">
+        <div class="location">at line 140</div>
+        <code>            public            boolean
+    <strong>__isset</strong>(string $property)</code>
+    </h3>
+    <div class="details">
+        <p>Returns true if the supplied static property exists on the proxied class.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property to search for.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>True if the property exists.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___unset">
+        <div class="location">at line 154</div>
+        <code>            public            
+    <strong>__unset</strong>(string $property)</code>
+    </h3>
+    <div class="details">
+        <p>Set the value of a static property on the proxied class to null.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property to set.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
