@@ -2,7 +2,7 @@
 
 *A proxy for circumventing PHP access modifier restrictions.*
 
-[![The most recent stable version is 1.1.1][version-image]][Semantic versioning]
+[![The most recent stable version is 2.0.0][version-image]][Semantic versioning]
 [![Current build status image][build-image]][Current build status]
 [![Current coverage status image][coverage-image]][Current coverage status]
 
@@ -111,4 +111,4 @@ so accessing static properties in this way is a not as elegant as it could be.
 [Current coverage status]: https://coveralls.io/r/eloquent/liberator
 [eloquent/liberator]: https://packagist.org/packages/eloquent/liberator
 [Semantic versioning]: http://semver.org/
-[version-image]: http://img.shields.io/:semver-1.1.1-brightgreen.svg "This project uses semantic versioning"
+[version-image]: http://img.shields.io/:semver-2.0.0-brightgreen.svg "This project uses semantic versioning"

@@ -1,6 +1,6 @@
 # Liberator changelog
 
-## 2.0.0 (unreleased)
+## 2.0.0 (2014-02-09)
 
 - **[BC BREAK]** Some class members that were previously protected are now
   private. It is very unlikely that this affects anyone at all, but technically
