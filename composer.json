@@ -1,7 +1,7 @@
 {
     "name": "eloquent/liberator",
     "description": "A proxy for circumventing PHP access modifier restrictions.",
-    "keywords": ["access","modifier","object","proxy","private","protected","reflection"],
+    "keywords": ["access", "modifier", "object", "proxy", "private", "protected", "reflection"],
     "homepage": "https://github.com/eloquent/liberator",
     "license": "MIT",
     "authors": [
@@ -12,15 +12,15 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
-        "eloquent/pops": "~3"
+        "php": ">=5.3",
+        "eloquent/pops": "dev-develop@dev"
     },
     "require-dev": {
-        "icecave/archer": "~0.2"
+        "icecave/archer": "~1"
     },
     "autoload": {
-        "psr-0": {
-            "Eloquent\\Liberator": "src"
+        "psr-4": {
+            "Eloquent\\Liberator\\": "src"
         }
     }
 }

@@ -3,10 +3,10 @@
 /*
  * This file is part of the Liberator package.
  *
- * Copyright © 2013 Erin Millard
+ * Copyright © 2014 Erin Millard
  *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
+ * For the full copyright and license information, please view the LICENSE file
+ * that was distributed with this source code.
  */
 
 namespace Eloquent\Liberator;
@@ -22,15 +22,13 @@ class LiberatorObjectTest extends TestCase
     {
         $data = array();
 
-        // #0: object with no inheritance
         $object = new Object;
         $proxy = new LiberatorObject($object);
-        $data[] = array($object, $proxy);
+        $data['Object with no inheritance'] = array($object, $proxy);
 
-        // #1: child object
         $object = new ChildObject;
         $proxy = new LiberatorObject($object);
-        $data[] = array($object, $proxy);
+        $data['Child object'] = array($object, $proxy);
 
         return $data;
     }
@@ -42,30 +40,12 @@ class LiberatorObjectTest extends TestCase
     {
         $recursiveProxy = new LiberatorObject($object, true);
 
-        $this->assertInstanceOf(
-            __NAMESPACE__.'\LiberatorObject',
-            $recursiveProxy->object()
-        );
-        $this->assertInstanceOf(
-            __NAMESPACE__.'\LiberatorObject',
-            $recursiveProxy->object()->object()
-        );
-        $this->assertInstanceOf(
-            __NAMESPACE__.'\LiberatorArray',
-            $recursiveProxy->object()->arrayValue()
-        );
-        $this->assertInstanceOf(
-            'Eloquent\Pops\ProxyPrimitive',
-            $recursiveProxy->object()->string()
-        );
-        $this->assertInstanceOf(
-            __NAMESPACE__.'\LiberatorArray',
-            $recursiveProxy->arrayValue()
-        );
-        $this->assertInstanceOf(
-            'Eloquent\Pops\ProxyPrimitive',
-            $recursiveProxy->string()
-        );
+        $this->assertInstanceOf('Eloquent\Liberator\LiberatorObject', $recursiveProxy->object());
+        $this->assertInstanceOf('Eloquent\Liberator\LiberatorObject', $recursiveProxy->object()->object());
+        $this->assertInstanceOf('Eloquent\Liberator\LiberatorArray', $recursiveProxy->object()->arrayValue());
+        $this->assertInstanceOf('Eloquent\Pops\ProxyPrimitive', $recursiveProxy->object()->string());
+        $this->assertInstanceOf('Eloquent\Liberator\LiberatorArray', $recursiveProxy->arrayValue());
+        $this->assertInstanceOf('Eloquent\Pops\ProxyPrimitive', $recursiveProxy->string());
     }
 
     /**
@@ -73,27 +53,10 @@ class LiberatorObjectTest extends TestCase
      */
     public function testCall(Object $object, LiberatorObject $proxy)
     {
-        $this->assertLiberatorCall(
-            $proxy,
-            'publicMethod',
-            array('foo', 'bar')
-        );
-        $this->assertLiberatorCall(
-            $proxy,
-            'protectedMethod',
-            array('foo', 'bar')
-        );
-        $this->assertLiberatorCall(
-            $proxy,
-            'privateMethod',
-            array('foo', 'bar')
-        );
-        $this->assertLiberatorCall(
-            $proxy,
-            'foo',
-            array('bar', 'baz'),
-            true
-        );
+        $this->assertLiberatorCall($proxy, 'publicMethod', array('foo', 'bar'));
+        $this->assertLiberatorCall($proxy, 'protectedMethod', array('foo', 'bar'));
+        $this->assertLiberatorCall($proxy, 'privateMethod', array('foo', 'bar'));
+        $this->assertLiberatorCall($proxy, 'foo', array('bar', 'baz'), true);
     }
 
     /**
@@ -116,18 +79,9 @@ class LiberatorObjectTest extends TestCase
         $this->assertTrue(isset($proxy->publicProperty));
         $this->assertTrue(isset($proxy->protectedProperty));
         $this->assertTrue(isset($proxy->privateProperty));
-        $this->assertEquals(
-            'publicProperty',
-            $proxy->publicProperty
-        );
-        $this->assertEquals(
-            'protectedProperty',
-            $proxy->protectedProperty
-        );
-        $this->assertEquals(
-            'privateProperty',
-            $proxy->privateProperty
-        );
+        $this->assertEquals('publicProperty', $proxy->publicProperty);
+        $this->assertEquals('protectedProperty', $proxy->protectedProperty);
+        $this->assertEquals('privateProperty', $proxy->privateProperty);
 
         $proxy->publicProperty = 'foo';
         $proxy->protectedProperty = 'bar';
@@ -156,9 +110,7 @@ class LiberatorObjectTest extends TestCase
         $this->assertEquals('bar', $object->foo);
 
         $object = new Overload;
-        $object->values = array(
-            'foo' => 'bar',
-        );
+        $object->values = array('foo' => 'bar');
         $proxy = new LiberatorObject($object);
 
         $this->assertTrue(isset($proxy->foo));

@@ -1,14 +1,14 @@
 # Liberator changelog
 
-### 1.1.1
+## 1.1.1
 
-* Added [icecave/archer](https://github.com/IcecaveStudios/archer) integration
-* Repository maintenance
+- **[NEW]** Added [icecave/archer](https://github.com/IcecaveStudios/archer) integration
+- **[MAINTENANCE]** Repository maintenance
 
-### 1.1.0
+## 1.1.0
 
-* Improved API
+- **[IMPROVED]** Improved API
 
-### 1.0.0
+## 1.0.0
 
-* Initial stable release
+- **[NEW]** Initial stable release
