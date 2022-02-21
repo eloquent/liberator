@@ -11,7 +11,7 @@
 
 namespace Eloquent\Liberator\Test\Fixture;
 
-class Overload extends Object
+class Overload extends Obj
 {
     public function __set($property, $value)
     {
@@ -33,5 +33,5 @@ class Overload extends Object
         unset($this->values[$property]);
     }
 
-    public $values = array();
+    public $values = [];
 }

@@ -11,6 +11,6 @@
 
 namespace Eloquent\Liberator\Test\Fixture;
 
-class ChildObject extends Object
+class ChildObject extends Obj
 {
 }

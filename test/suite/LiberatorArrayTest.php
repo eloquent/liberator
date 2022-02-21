@@ -11,22 +11,22 @@
 
 namespace Eloquent\Liberator;
 
-use Eloquent\Liberator\Test\Fixture\Object;
-use PHPUnit_Framework_TestCase;
+use Eloquent\Liberator\Test\Fixture\Obj;
+use PHPUnit\Framework\TestCase;
 
-class LiberatorArrayTest extends PHPUnit_Framework_TestCase
+class LiberatorArrayTest extends TestCase
 {
     public function testRecursive()
     {
-        $array = array(
-            'object' => new Object,
-            'array' => array(
-                'object' => new Object,
-                'array' => array(),
+        $array = [
+            'object' => new Obj(),
+            'array' => [
+                'object' => new Obj(),
+                'array' => [],
                 'string' => 'string',
-             ),
+             ],
             'string' => 'string',
-        );
+        ];
         $recursiveProxy = new LiberatorArray($array, true);
 
         $this->assertInstanceOf('Eloquent\Liberator\LiberatorObject', $recursiveProxy['object']);

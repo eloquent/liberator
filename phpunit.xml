@@ -1,0 +1,31 @@
+<phpunit
+    bootstrap="vendor/autoload.php"
+    cacheResultFile="artifacts/test/phpunit.result.cache"
+    colors="true"
+    beStrictAboutChangesToGlobalState="true"
+    beStrictAboutOutputDuringTests="true"
+    beStrictAboutTestsThatDoNotTestAnything="true"
+    convertErrorsToExceptions="true"
+    verbose="true"
+>
+    <testsuites>
+        <testsuite name="main">
+            <directory>test/suite</directory>
+        </testsuite>
+    </testsuites>
+
+    <coverage>
+        <report>
+            <text outputFile="php://stdout" showOnlySummary="true"/>
+        </report>
+
+        <include>
+            <directory>src</directory>
+        </include>
+    </coverage>
+
+    <php>
+        <ini name="error_reporting" value="-1"/>
+        <ini name="memory_limit" value="256M"/>
+    </php>
+</phpunit>

@@ -23,8 +23,8 @@ class Liberator extends Proxy
     /**
      * Wrap the supplied value in a liberator proxy.
      *
-     * @param mixed        $value       The value to wrap.
-     * @param boolean|null $isRecursive True if the value should be recursively proxied.
+     * @param mixed     $value       The value to wrap.
+     * @param bool|null $isRecursive True if the value should be recursively proxied.
      *
      * @return LiberatorProxyInterface The proxied value.
      */
@@ -36,8 +36,8 @@ class Liberator extends Proxy
     /**
      * Wrap the supplied class in a non-static liberator proxy.
      *
-     * @param string       $class       The name of the class to wrap.
-     * @param boolean|null $isRecursive True if the class should be recursively proxied.
+     * @param string    $class       The name of the class to wrap.
+     * @param bool|null $isRecursive True if the class should be recursively proxied.
      *
      * @return ProxyClassInterface  The non-static class proxy.
      * @throws InvalidTypeException If the supplied value is not the correct type.
@@ -50,9 +50,9 @@ class Liberator extends Proxy
     /**
      * Wrap the supplied class in a static liberator proxy.
      *
-     * @param string       $class       The name of the class to wrap.
-     * @param boolean|null $isRecursive True if the class should be recursively proxied.
-     * @param string|null  $proxyClass  The class name to use for the proxy class.
+     * @param string      $class       The name of the class to wrap.
+     * @param bool|null   $isRecursive True if the class should be recursively proxied.
+     * @param string|null $proxyClass  The class name to use for the proxy class.
      *
      * @return string The static class proxy.
      */

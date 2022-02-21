@@ -12,7 +12,7 @@
 namespace Eloquent\Liberator;
 
 use Eloquent\Liberator\Test\Fixture\ChildObject;
-use Eloquent\Liberator\Test\Fixture\Object;
+use Eloquent\Liberator\Test\Fixture\Obj;
 use Eloquent\Liberator\Test\Fixture\Overload;
 use Eloquent\Liberator\Test\TestCase;
 
@@ -20,15 +20,15 @@ class LiberatorObjectTest extends TestCase
 {
     public function fixtureData()
     {
-        $data = array();
+        $data = [];
 
-        $object = new Object;
+        $object = new Obj();
         $proxy = new LiberatorObject($object);
-        $data['Object with no inheritance'] = array($object, $proxy);
+        $data['Object with no inheritance'] = [$object, $proxy];
 
-        $object = new ChildObject;
+        $object = new ChildObject();
         $proxy = new LiberatorObject($object);
-        $data['Child object'] = array($object, $proxy);
+        $data['Child object'] = [$object, $proxy];
 
         return $data;
     }
@@ -36,7 +36,7 @@ class LiberatorObjectTest extends TestCase
     /**
      * @dataProvider fixtureData
      */
-    public function testRecursive(Object $object)
+    public function testRecursive(Obj $object)
     {
         $recursiveProxy = new LiberatorObject($object, true);
 
@@ -51,21 +51,21 @@ class LiberatorObjectTest extends TestCase
     /**
      * @dataProvider fixtureData
      */
-    public function testCall(Object $object, LiberatorObject $proxy)
+    public function testCall(Obj $object, LiberatorObject $proxy)
     {
-        $this->assertLiberatorCall($proxy, 'publicMethod', array('foo', 'bar'));
-        $this->assertLiberatorCall($proxy, 'protectedMethod', array('foo', 'bar'));
-        $this->assertLiberatorCall($proxy, 'privateMethod', array('foo', 'bar'));
-        $this->assertLiberatorCall($proxy, 'foo', array('bar', 'baz'), true);
+        $this->assertLiberatorCall($proxy, 'publicMethod', ['foo', 'bar']);
+        $this->assertLiberatorCall($proxy, 'protectedMethod', ['foo', 'bar']);
+        $this->assertLiberatorCall($proxy, 'privateMethod', ['foo', 'bar']);
+        $this->assertLiberatorCall($proxy, 'foo', ['bar', 'baz'], true);
     }
 
     /**
      * @dataProvider fixtureData
      */
-    public function testCallByReference(Object $object, LiberatorObject $proxy)
+    public function testCallByReference(Obj $object, LiberatorObject $proxy)
     {
         $variable = null;
-        $arguments = array(&$variable, 'foo');
+        $arguments = [&$variable, 'foo'];
         $proxy->liberatorCall('byReference', $arguments);
 
         $this->assertSame('foo', $variable);
@@ -74,7 +74,7 @@ class LiberatorObjectTest extends TestCase
     /**
      * @dataProvider fixtureData
      */
-    public function testSetGet(Object $object, LiberatorObject $proxy)
+    public function testSetGet(Obj $object, LiberatorObject $proxy)
     {
         $this->assertTrue(isset($proxy->publicProperty));
         $this->assertTrue(isset($proxy->protectedProperty));
@@ -109,8 +109,8 @@ class LiberatorObjectTest extends TestCase
         $this->assertEquals('bar', $proxy->foo);
         $this->assertEquals('bar', $object->foo);
 
-        $object = new Overload;
-        $object->values = array('foo' => 'bar');
+        $object = new Overload();
+        $object->values = ['foo' => 'bar'];
         $proxy = new LiberatorObject($object);
 
         $this->assertTrue(isset($proxy->foo));

@@ -12,15 +12,31 @@
         }
     ],
     "require": {
-        "php": ">=5.3",
-        "eloquent/pops": "~4.1.0"
+        "php": "^7.4 || ^8",
+        "eloquent/pops": "^5"
     },
     "require-dev": {
-        "icecave/archer": "~1"
+        "eloquent/code-style": "^2",
+        "errors/exceptions": "^0.2",
+        "friendsofphp/php-cs-fixer": "^3",
+        "phpunit/phpunit": "^9"
     },
     "autoload": {
         "psr-4": {
             "Eloquent\\Liberator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Eloquent\\Liberator\\": ["test/src"]
+        },
+        "files": [
+            "test/src/SeriousBusiness.php"
+        ]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "3.0.x-dev"
         }
     }
 }

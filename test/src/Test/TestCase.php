@@ -11,11 +11,11 @@
 
 namespace Eloquent\Liberator\Test;
 
-use PHPUnit_Framework_TestCase;
-use Eloquent\Pops\ProxyInterface;
 use Eloquent\Pops\ProxyClassInterface;
+use Eloquent\Pops\ProxyInterface;
+use PHPUnit\Framework\TestCase as PhpunitTestCase;
 
-class TestCase extends PHPUnit_Framework_TestCase
+class TestCase extends PhpunitTestCase
 {
     /**
      * Assert that a Librator call was made as expected.
@@ -23,7 +23,7 @@ class TestCase extends PHPUnit_Framework_TestCase
      * @param ProxyInterface $proxy     The proxy to call.
      * @param string         $method    The method to call.
      * @param array|null     $arguments The arguments to pass.
-     * @param boolean|null   $isMagic   True if the call should be handled via a magic method.
+     * @param bool|null      $isMagic   True if the call should be handled via a magic method.
      */
     protected function assertLiberatorCall(
         ProxyInterface $proxy,
@@ -31,10 +31,10 @@ class TestCase extends PHPUnit_Framework_TestCase
         array $arguments = null,
         $magic = null
     ) {
-        $actual = call_user_func_array(array($proxy, $method), $arguments);
+        $actual = call_user_func_array([$proxy, $method], $arguments);
 
         if ($magic) {
-            $arguments = array($method, $arguments);
+            $arguments = [$method, $arguments];
 
             if ($proxy instanceof ProxyClassInterface) {
                 $method = '__callStatic';
@@ -43,7 +43,7 @@ class TestCase extends PHPUnit_Framework_TestCase
             }
         }
 
-        $expected = array($method, $arguments);
+        $expected = [$method, $arguments];
 
         $this->assertEquals($expected, $actual);
     }

@@ -1,29 +1,15 @@
 # Contributing
 
-**Liberator** is open source software; contributions from the community are
-encouraged. Please take a moment to read these guidelines before submitting
-changes.
+As a guideline, please follow this process when contributing:
 
-### Code style
+1. [Fork the repository]
+2. [Create a branch]
+3. Make your changes
+4. Use `make prepare` to run tests and code style checks
+5. [Squash commits] if necessary
+6. [Create a pull request]
 
-All PHP code must adhere to the
-[PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)
-standards.
-
-### Branching and pull requests
-
-As a guideline, please follow this process:
-
- 1. [Fork the repository](https://help.github.com/articles/fork-a-repo).
- 2. Create a topic branch for the change:
-    * New features should branch from **develop**.
-    * Bug fixes to existing versions should branch from **master**.
-    * Please ensure the branch is clearly labelled as a feature or fix.
- 3. Make the relevant changes.
- 4. [Squash](http://git-scm.com/book/en/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages)
-    commits if necessary.
- 4. Submit a pull request to the **develop** branch.
-
-Please note this is a general guideline only. For more information on the
-branching structure please see the
-[git-flow cheatsheet](http://danielkummer.github.com/git-flow-cheatsheet/).
+[create a branch]: https://help.github.com/articles/about-branches
+[create a pull request]: https://help.github.com/articles/creating-a-pull-request
+[fork the repository]: https://help.github.com/articles/fork-a-repo
+[squash commits]: https://help.github.com/articles/about-git-rebase

@@ -11,30 +11,27 @@
 
 namespace Eloquent\Liberator;
 
-use Eloquent\Liberator\Test\Fixture\Object;
 use Eloquent\Liberator\Test\TestCase;
 
 class LiberatorClassTest extends TestCase
 {
-    protected function setUp()
+    protected function setUp(): void
     {
-        parent::setUp();
-
-        $this->class = 'Eloquent\Liberator\Test\Fixture\Object';
+        $this->class = 'Eloquent\Liberator\Test\Fixture\Obj';
         $this->proxy = new LiberatorClass($this->class);
     }
 
     public function fixtureData()
     {
-        $data = array();
+        $data = [];
 
-        $class = 'Eloquent\Liberator\Test\Fixture\Object';
+        $class = 'Eloquent\Liberator\Test\Fixture\Obj';
         $proxy = new LiberatorClass($class);
-        $data['Class with no inheritance'] = array($class, $proxy);
+        $data['Class with no inheritance'] = [$class, $proxy];
 
         $class = 'Eloquent\Liberator\Test\Fixture\ChildObject';
         $proxy = new LiberatorClass($class);
-        $data['Child class'] = array($class, $proxy);
+        $data['Child class'] = [$class, $proxy];
 
         return $data;
     }
@@ -59,16 +56,16 @@ class LiberatorClassTest extends TestCase
      */
     public function testCall($class, LiberatorClass $proxy)
     {
-        $this->assertLiberatorCall($proxy, 'staticPublicMethod', array('foo', 'bar'));
-        $this->assertLiberatorCall($proxy, 'staticProtectedMethod', array('foo', 'bar'));
-        $this->assertLiberatorCall($proxy, 'staticPrivateMethod', array('foo', 'bar'));
-        $this->assertLiberatorCall($proxy, 'foo', array('bar', 'baz'), true);
+        $this->assertLiberatorCall($proxy, 'staticPublicMethod', ['foo', 'bar']);
+        $this->assertLiberatorCall($proxy, 'staticProtectedMethod', ['foo', 'bar']);
+        $this->assertLiberatorCall($proxy, 'staticPrivateMethod', ['foo', 'bar']);
+        $this->assertLiberatorCall($proxy, 'foo', ['bar', 'baz'], true);
     }
 
     public function testCallByReference()
     {
         $variable = null;
-        $arguments = array(&$variable, 'foo');
+        $arguments = [&$variable, 'foo'];
         $this->proxy->liberatorCall('staticByReference', $arguments);
 
         $this->assertSame('foo', $variable);
@@ -76,9 +73,9 @@ class LiberatorClassTest extends TestCase
 
     public function testCallByReferenceStatic()
     {
-        $class = LiberatorClass::popsGenerateStaticClassProxy('Eloquent\Liberator\Test\Fixture\Object');
+        $class = LiberatorClass::popsGenerateStaticClassProxy('Eloquent\Liberator\Test\Fixture\Obj');
         $variable = null;
-        $arguments = array(&$variable, 'foo');
+        $arguments = [&$variable, 'foo'];
         $class::liberator()->liberatorCall('staticByReference', $arguments);
 
         $this->assertSame('foo', $variable);
@@ -131,11 +128,11 @@ class LiberatorClassTest extends TestCase
 
     public function setGetFailureData()
     {
-        return array(
-            array('__set', array('foo', 'bar')),
-            array('__get', array('foo')),
-            array('__unset', array('foo')),
-        );
+        return [
+            ['__set', ['foo', 'bar']],
+            ['__get', ['foo']],
+            ['__unset', ['foo']],
+        ];
     }
 
     /**
@@ -143,27 +140,25 @@ class LiberatorClassTest extends TestCase
      */
     public function testSetGetFailure($method, array $arguments)
     {
-        $this->setExpectedException(
-            'LogicException',
-            'Access to undeclared static property: Eloquent\Liberator\Test\Fixture\Object::$' . $arguments[0]
-        );
-        call_user_func_array(array($this->proxy, $method), $arguments);
+        $this->expectException('LogicException');
+        $this->expectExceptionMessage('Access to undeclared static property: Eloquent\Liberator\Test\Fixture\Obj::$' . $arguments[0]);
+        call_user_func_array([$this->proxy, $method], $arguments);
     }
 
     public function testPopsGenerateStaticClassProxy()
     {
-        $class = LiberatorClass::popsGenerateStaticClassProxy('Eloquent\Liberator\Test\Fixture\Object');
+        $class = LiberatorClass::popsGenerateStaticClassProxy('Eloquent\Liberator\Test\Fixture\Obj');
 
         $this->assertTrue(class_exists($class, false));
         $this->assertTrue(is_subclass_of($class, 'Eloquent\Liberator\LiberatorClass'));
 
-        $expected = new $class('Eloquent\Liberator\Test\Fixture\Object');
+        $expected = new $class('Eloquent\Liberator\Test\Fixture\Obj');
         $proxy = $class::liberator();
 
         $this->assertEquals($expected, $proxy);
 
         // recursive tests
-        $class = LiberatorClass::popsGenerateStaticClassProxy('Eloquent\Liberator\Test\Fixture\Object', true);
+        $class = LiberatorClass::popsGenerateStaticClassProxy('Eloquent\Liberator\Test\Fixture\Obj', true);
 
         $this->assertInstanceOf('Eloquent\Liberator\LiberatorObject', $class::staticObject());
         $this->assertInstanceOf('Eloquent\Liberator\LiberatorObject', $class::staticObject()->object());

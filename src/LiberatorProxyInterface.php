@@ -1,4 +1,6 @@
-<?php // @codeCoverageIgnoreStart
+<?php
+
+// @codeCoverageIgnoreStart
 
 /*
  * This file is part of the Liberator package.

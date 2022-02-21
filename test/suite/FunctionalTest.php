@@ -10,12 +10,13 @@
  */
 
 use Eloquent\Liberator\Liberator;
+use PHPUnit\Framework\TestCase;
 
-class FunctionalTest extends PHPUnit_Framework_TestCase
+class FunctionalTest extends TestCase
 {
     public function testDocumentationLiberatorObject()
     {
-        $object = new SeriousBusiness;
+        $object = new SeriousBusiness();
         $liberator = Liberator::liberate($object);
 
         $this->assertEquals('foo is not so private...', $liberator->foo('not so private...'));

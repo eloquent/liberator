@@ -2,14 +2,9 @@
 
 *A proxy for circumventing PHP access modifier restrictions.*
 
-[![The most recent stable version is 2.0.0][version-image]][Semantic versioning]
-[![Current build status image][build-image]][Current build status]
-[![Current coverage status image][coverage-image]][Current coverage status]
-
 ## Installation and documentation
 
 - Available as [Composer] package [eloquent/liberator].
-- [API documentation] available.
 
 ## What is Liberator?
 
@@ -103,12 +98,5 @@ so accessing static properties in this way is a not as elegant as it could be.
 
 [white-box]: http://en.wikipedia.org/wiki/White-box_testing
 
-[API documentation]: http://lqnt.co/liberator/artifacts/documentation/api/
-[Composer]: http://getcomposer.org/
-[build-image]: http://img.shields.io/travis/eloquent/liberator/develop.svg "Current build status for the develop branch"
-[Current build status]: https://travis-ci.org/eloquent/liberator
-[coverage-image]: http://img.shields.io/coveralls/eloquent/liberator/develop.svg "Current test coverage for the develop branch"
-[Current coverage status]: https://coveralls.io/r/eloquent/liberator
+[composer]: http://getcomposer.org/
 [eloquent/liberator]: https://packagist.org/packages/eloquent/liberator
-[Semantic versioning]: http://semver.org/
-[version-image]: http://img.shields.io/:semver-2.0.0-brightgreen.svg "This project uses semantic versioning"
